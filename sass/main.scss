@@ -74,3 +74,48 @@ html{
         color: black; 
     }
 }
+
+.clock{
+    position: relative;
+    height: 20rem;
+    width: 20rem;
+}
+
+.clock-middle{
+    position: absolute;
+    background-color: red;
+    width: 1rem;
+    height: 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.pointer{
+    position: absolute;
+    background-color: black;
+    top: 50%;
+    left: 50%;
+    height: 6.5rem;
+    width: .3rem;
+    transform-origin: bottom center;
+
+    &.light{
+        background-color: white;
+    }
+}
+
+.hour-pointer{
+    transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.min-pointer{
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 10rem;
+}
+
+.sec-pointer{
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 12rem;
+}
