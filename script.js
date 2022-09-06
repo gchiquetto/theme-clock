@@ -3,6 +3,8 @@ const main = document.querySelector('.main');
 const texts = document.querySelectorAll('.text');
 const pointers = document.querySelectorAll('.pointer');
 const hourPointer = document.getElementById('hour');
+const minPointer = document.getElementById('minute');
+const secPointer = document.getElementById('second');
 const dayLabel = document.querySelector('.day');
 const monthLabel = document.querySelector('.month');
 const numericDayLabel = document.querySelector('.numeric-date');
@@ -13,6 +15,7 @@ updateHour();
 updateClock();
 
 const updateTime = setInterval(updateHour, 1000);
+const updateClockTimer = setInterval(updateClock, 1000);
 
 styleButton.addEventListener('click', () =>{
     styleButton.classList.toggle('light');
@@ -40,7 +43,11 @@ function createNewDate(){
 }
 
 function updateClock(){
-    const hourDegree = +createNewDate().toLocaleString('nl-NL', {hour: 'numeric'})*15;
-    console.log(hourPointer);
+    const time = createNewDate();
+    const hourDegree = +time.toLocaleString('nl-NL', {hour: 'numeric'})*30;
+    const minuteDegree = +time.toLocaleString('nl-NL', {minute:'2-digit'})*6;
+    const secondsDegree = +time.toLocaleString('nl-NL', {second: 'numeric'})*6;
     hourPointer.style.transform = `translate(-50%, -100%) rotate(${hourDegree}deg)`;
+    minPointer.style.transform = `translate(-50%, -100%) rotate(${minuteDegree}deg)`;
+    secPointer.style.transform = `translate(-50%, -100%) rotate(${secondsDegree}deg)`;
 }
